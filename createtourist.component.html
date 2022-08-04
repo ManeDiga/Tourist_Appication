@@ -1,0 +1,83 @@
+<div class="col-md-6 offset-md-3">
+<h3> Registration Form </h3>
+<form (ngSubmit) = " f.form.valid && onSubmit()" #f=ngForm>
+
+
+  <div class="from-group">
+    <label for = "idNumber">Id Number</label><br>
+    <input type="text" class="from-control" id="idNumber" [(ngModel)] = "tourist.idNumber" name="idNumber" required
+    #IdNumber="ngModel"
+    pattern="[0-9 && a-z && A-Z]{1,4}">
+    <span *ngIf="f.submitted && IdNumber.errors?.['required']">Please Enter Your  ID Number</span>
+    <span *ngIf="f.submitted && IdNumber.errors?.['pattern']">Invalid Id Number... plese inter 4 digit only</span>
+  </div>
+
+  <div class="from-group">
+    <label for = "firstName">Frist Name</label><br>
+    <input type="text" class="from-control" id="firstName" [(ngModel)] = "tourist.firstName" name="firstName" required
+    #FirstName="ngModel"
+    pattern="[a-z && A-Z]{1,15}">
+    <span *ngIf="f.submitted && FirstName.errors?.['required']">Please Enter Your  First Name</span>
+    <span *ngIf="f.submitted && FirstName.errors?.['pattern']">Invalid First Name</span>
+  </div>
+
+  <div class="from-group">
+    <label for = "lastName">Last Name</label><br>
+    <input type="text" class="from-control" id="lastName" [(ngModel)] = "tourist.lastName" name="lastName" required
+    #lastName="ngModel"
+    pattern="[a-z && A-Z]{1,12}">
+    <span *ngIf="f.submitted && lastName.errors?.['required']">Please Enter Your Last Name</span>
+    <span *ngIf="f.submitted && lastName.errors?.['pattern']">Invalid Last Name</span>
+  </div>
+
+
+  <div class="from-group">
+    <label for = "age">Age</label><br>
+    <input type="number" class="from-control" id="age" [(ngModel)] = "tourist.age" name="age" required
+    #age="ngModel"
+    pattern="{1,90}">
+    <span *ngIf="f.submitted && age.errors?.['required']">Please Enter Your Age</span>
+    <span *ngIf="f.submitted && age.errors?.['pattern']">Invalid Age</span>
+  </div>
+
+  <div class="m1">Gender</div>
+
+<div class="custom-control custom-radio">
+
+<input id="Male" type="radio" class="custom-control-input" value="Male" name="gender" [(ngModel)]="tourist.gender">
+ <label class="custom-control-label" for="Male">Male</label>
+
+</div>
+
+<div class="custom-control custom-radio">
+
+<input id="Female" type="radio" class="custom-control-input" value="Female" name="gender" [(ngModel)]="tourist.gender">
+ <label class="custom-control-label" for ="Female">Female</label>
+
+</div>
+
+  
+
+  <div class="from-group">
+    <label for = "fromPlace">From Place</label><br>
+    <input type="text" class="from-control" id="age" [(ngModel)] = "tourist.fromPlace" name="fromPlace" required
+    #fromPlace="ngModel"
+    pattern="[a-z && A-Z]{1,12}">
+    <span *ngIf="f.submitted && fromPlace.errors?.['required']">Please Enter Your Frome Place</span>
+    <span *ngIf="f.submitted && fromPlace.errors?.['pattern']">Invalid From Place</span>
+  </div>
+
+  <div class="from-group">
+    <label for = "numberofDays">Number of Days</label><br>
+    <input type="number" class="from-control" id="numberofDays" [(ngModel)] = "tourist.numberofDays" name="numberofDays" required
+    #numberofDays="ngModel"
+    pattern="{1,12}">
+    <span *ngIf="f.submitted && numberofDays.errors?.['required']">Please Enter Your Number of Days</span>
+    <span *ngIf="f.submitted && numberofDays.errors?.['pattern']">Invalid Number of Days</span>
+  </div><br>
+
+  <button class="btn btn-success" type="submit">Submit</button>
+
+  
+</form>
+</div>
